@@ -2,36 +2,116 @@
 
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { ArrowRight, Check, Star, MapPin, Phone, Mail, MessageCircleQuestion, ChevronLeft, ChevronRight, Quote, User, Users, Building2, Hospital, FlaskConical, ShieldCheck, HeartPulse, Home as HomeIcon, Ambulance, Target, Globe, Sparkles, BadgeDollarSign, PhoneCall, MoveRight, AlertTriangle, Clock } from 'lucide-react';
+import { ArrowRight, Check, Star, MapPin, Phone, Mail, MessageCircleQuestion, ChevronLeft, ChevronRight, Quote, User, Users, Building2, Hospital, FlaskConical, ShieldCheck, HeartPulse, Home as HomeIcon, Ambulance, Target, Globe, Sparkles, BadgeDollarSign, PhoneCall, AlertTriangle, Clock } from 'lucide-react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import Navbar from '@/components/Navbar';
 import Image from 'next/image';
-import { services, testimonials, stats, whyChooseUs } from '@/lib/data';
+import { testimonials, stats, whyChooseUs } from '@/lib/data';
+import { useState, useEffect, useCallback } from 'react';
+
+const banners = [
+  { src: '/Editor-result-3.webp', alt: 'Namma Health - Complete Healthcare Ecosystem' },
+  { src: '/HD Ambulance Banner 1 (1).png', alt: 'Namma Health - Ambulance Services' },
+];
+
+function HeroBanner() {
+  const [current, setCurrent] = useState(0);
+
+  const next = useCallback(() => setCurrent((p) => (p + 1) % banners.length), []);
+  const prev = () => setCurrent((p) => (p - 1 + banners.length) % banners.length);
+
+  useEffect(() => {
+    const t = setInterval(next, 4000);
+    return () => clearInterval(t);
+  }, [next]);
+
+  return (
+    <div
+      className="relative w-full overflow-hidden bg-black h-[220px] sm:h-[350px] md:h-[550px]"
+    >
+      {banners.map((b, i) => (
+        <div
+          key={i}
+          className="absolute inset-0 transition-opacity duration-700"
+          style={{ opacity: i === current ? 1 : 0 }}
+        >
+          <Image
+            src={b.src}
+            alt={b.alt}
+            fill
+            quality={100}
+            priority={i === 0}
+            className="hidden md:block"
+            style={{ objectFit: 'cover', objectPosition: 'center' }}
+          />
+          {/* Mobile: show image contained so nothing is cropped */}
+          <Image
+            src={b.src}
+            alt={b.alt}
+            fill
+            quality={100}
+            priority={i === 0}
+            className="md:hidden"
+            style={{ objectFit: 'contain', objectPosition: 'center', background: '#000' }}
+          />
+        </div>
+      ))}
+
+      {/* Prev / Next — smaller & closer to edges on mobile */}
+      <button
+        onClick={prev}
+        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/40 hover:bg-black/60 flex items-center justify-center text-white transition z-10"
+      >
+        <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+      </button>
+      <button
+        onClick={next}
+        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/40 hover:bg-black/60 flex items-center justify-center text-white transition z-10"
+      >
+        <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
+      </button>
+
+      {/* Dots */}
+      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+        {banners.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className={`rounded-full transition-all ${
+              i === current ? 'bg-white w-5 h-2.5' : 'bg-white/50 w-2.5 h-2.5'
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="py-20 bg-white">
+      {/* Hero Banner Slider */}
+      <HeroBanner />
+
+      {/* Hero Content Section */}
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <div className="space-y-4">
-                <p className="text-sm font-semibold text-primary uppercase tracking-wide">All-In-One Healthcare Ecosystem</p>
-                <h1 className="text-3xl md:text-4xl font-bold text-foreground leading-tight">
-                  Your 24&times;7 Complete Healthcare<br />Coordination Partner
-                </h1>
-                <p className="text-lg text-gray-600">
-                  Namma Health is a membership-based healthcare coordination ecosystem designed to simplify access to hospitals, diagnostics, insurance, home care, and emergency services.
-                </p>
-                <p className="text-gray-600">
-                  Through a trusted network of partner hospitals, diagnostic centres, and service providers, we coordinate end-to-end healthcare needs — ensuring affordability, transparency, and 24/7 support.
-                </p>
-                <p className="text-sm font-semibold text-primary flex items-center gap-2"><MoveRight className="w-4 h-4" /> One Membership. Multiple Services. Complete Care.</p>
-              </div>
-              <div className="flex gap-4">
+            <div className="space-y-5">
+              <p className="text-sm font-semibold text-primary uppercase tracking-wide">All-In-One Healthcare Ecosystem</p>
+              <h1 className="text-3xl md:text-4xl font-bold text-foreground leading-tight">
+                Your 24&times;7 Complete Healthcare<br />Coordination Partner
+              </h1>
+              <p className="text-lg text-gray-600">
+                Namma Health is a membership-based healthcare coordination ecosystem designed to simplify access to hospitals, diagnostics, insurance, home care, and emergency services.
+              </p>
+              <p className="text-gray-600">
+                Through a trusted network of partner hospitals, diagnostic centres, and service providers, we coordinate end-to-end healthcare needs &mdash; ensuring affordability, transparency, and 24/7 support.
+              </p>
+              <p className="text-sm font-semibold text-primary">One Membership. Multiple Services. Complete Care.</p>
+              <div className="flex flex-wrap gap-4 pt-2">
                 <Button size="lg" className="bg-primary hover:bg-primary/90 text-white">
                   Book Appointment <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
@@ -39,7 +119,7 @@ export default function Home() {
                   Learn More
                 </Button>
               </div>
-              <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200">
+              <div className="grid grid-cols-3 gap-6 pt-6 border-t border-gray-200">
                 {stats.map((stat) => (
                   <div key={stat.label}>
                     <p className="text-3xl font-bold text-primary">{stat.number}</p>
@@ -48,10 +128,15 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <div className="relative hidden md:block">
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-gray-100">
-                <Image src="/images/doctor-hero.jpg" alt="Professional doctor" fill className="object-cover" />
-              </div>
+            <div className="flex items-center justify-center">
+              <Image
+                src="/8.png"
+                alt="Namma Health"
+                width={520}
+                height={520}
+                className="w-full max-w-md object-contain drop-shadow-xl"
+                priority
+              />
             </div>
           </div>
         </div>

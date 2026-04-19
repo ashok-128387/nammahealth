@@ -7,25 +7,16 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Namma Health - Premium Healthcare Coordination Platform',
-  description: 'Seamless healthcare coordination with 126+ partner hospitals. Diagnostic services, health insurance, and 24/7 support.',
-  generator: 'v0.app',
+  title: 'Nammahealth - All-In-One Healthcare Ecosystem',
+  description: 'Namma Health is a membership-based healthcare coordination ecosystem designed to simplify access to hospitals, diagnostics, insurance, home care, and emergency services.',
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+    icon: '/8.png',
+    apple: '/8.png',
+  },
+  openGraph: {
+    title: 'Nammahealth - All-In-One Healthcare Ecosystem',
+    description: 'Your 24x7 Complete Healthcare Coordination Partner. One Membership. Multiple Services. Complete Care.',
+    images: [{ url: '/8.png' }],
   },
 }
 
