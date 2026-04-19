@@ -130,11 +130,11 @@ export default function Home() {
             </div>
             <div className="flex items-center justify-center">
               <Image
-                src="/8.png"
+                src="/images/doctor-hero.jpg"
                 alt="Namma Health"
                 width={520}
                 height={520}
-                className="w-full max-w-md object-contain drop-shadow-xl"
+                className="w-full max-w-md object-contain drop-shadow-xl rounded-2xl"
                 priority
               />
             </div>
