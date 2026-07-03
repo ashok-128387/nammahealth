@@ -183,63 +183,39 @@ export const services = [
 
 export const testimonials = [
   {
-    name: "Rajesh Verma",
-    title: "Software Engineer, Bangalore",
-    content: "Namma Health made my healthcare journey so smooth. The doctor appointment booking was hassle-free and the consultation was professional.",
+    name: "Ramesh Kumar",
+    title: "Software Engineer, Indiranagar, Bengaluru",
+    content: "Namma Health coordinated my father's hospital admission at a partner hospital in Bengaluru within hours. The team was available 24/7 and handled all paperwork. Truly stress-free.",
     rating: 5,
   },
   {
-    name: "Anjali Desai",
-    title: "Business Owner, Mysore",
-    content: "Excellent service! The health insurance coordination was seamless. I was impressed with their attention to detail and customer support.",
+    name: "Sunitha Rao",
+    title: "Homemaker, Jayanagar, Bengaluru",
+    content: "I booked a full body health check-up for my family through Namma Health. The diagnostic centre was excellent and reports were shared digitally the same day.",
     rating: 5,
   },
   {
-    name: "Vikram Sharma",
-    title: "Corporate Professional, Pune",
-    content: "Their diagnostic services are top-notch with quick turnaround times. The home collection service saved me so much time.",
+    name: "Manjunath Gowda",
+    title: "Business Owner, Rajajinagar, Bengaluru",
+    content: "Their ambulance service reached us in under 10 minutes during an emergency in Bengaluru. The paramedics were professional and the hospital coordination was seamless.",
     rating: 5,
   },
   {
-    name: "Priya Nair",
-    title: "Teacher, Kochi",
-    content: "The 24/7 member support is fantastic. Whenever I had questions, they responded promptly and professionally.",
+    name: "Preethi Nair",
+    title: "Teacher, Koramangala, Bengaluru",
+    content: "The home nursing service arranged by Namma Health for my mother's post-surgery recovery was outstanding. Verified, caring professionals at our doorstep.",
     rating: 5,
   },
   {
-    name: "Suresh Babu",
-    title: "Retired Government Officer, Chennai",
-    content: "At my age, navigating hospitals was stressful. Namma Health's coordinators handled everything — from admission to discharge. Truly a blessing.",
+    name: "Venkatesh Murthy",
+    title: "Retired Officer, Malleshwaram, Bengaluru",
+    content: "At my age, hospital visits were overwhelming. Namma Health's coordinator handled everything from OPD booking to discharge. I felt completely supported.",
     rating: 5,
   },
   {
-    name: "Meera Krishnan",
-    title: "Homemaker, Coimbatore",
-    content: "Booked a full-body health check-up for my entire family in minutes. The reports were online the same day. Highly recommend!",
-    rating: 5,
-  },
-  {
-    name: "Arjun Reddy",
-    title: "Startup Founder, Hyderabad",
-    content: "The corporate membership for my team has been a game-changer. Employees feel cared for and productivity has improved significantly.",
-    rating: 5,
-  },
-  {
-    name: "Deepa Menon",
-    title: "Nurse, Trivandrum",
-    content: "Even as a healthcare professional, I was amazed by how efficiently Namma Health coordinated my mother's surgery. Exceptional service.",
-    rating: 5,
-  },
-  {
-    name: "Karthik Iyer",
-    title: "Chartered Accountant, Mumbai",
-    content: "The ambulance was at our door in under 10 minutes during an emergency. Their response time and professionalism are unmatched.",
-    rating: 5,
-  },
-  {
-    name: "Lakshmi Patel",
-    title: "College Student, Ahmedabad",
-    content: "Affordable student membership with great benefits. Got my blood tests done at home and the doctor consultation was super easy to book.",
+    name: "Kavitha Reddy",
+    title: "IT Professional, Whitefield, Bengaluru",
+    content: "The corporate membership for our Bengaluru office has been a great benefit. Employees can access healthcare coordination anytime. Highly recommended for companies.",
     rating: 5,
   },
 ];
@@ -272,8 +248,8 @@ export const faqItems = [
 ];
 
 export const stats = [
-  { number: "126+", label: "Partner Hospitals" },
-  { number: "25k+", label: "Members Served" },
+  { number: "20+", label: "Partner Hospitals" },
+  { number: "100+", label: "Members Served" },
   { number: "98%",  label: "Member Satisfaction" },
   { number: "24/7", label: "Support Available" },
 ];

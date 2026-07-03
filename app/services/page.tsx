@@ -71,9 +71,9 @@ const services = [
 ];
 
 const stats = [
-  { number: '126+', label: 'Partner Hospitals' },
+  { number: '20+', label: 'Partner Hospitals' },
   { number: '6', label: 'Core Services' },
-  { number: '25k+', label: 'Members Served' },
+  { number: '100+', label: 'Members Served' },
   { number: '24/7', label: 'Support Available' },
 ];
 
@@ -107,9 +107,11 @@ export default function ServicesPage() {
             End-to-end healthcare coordination across hospitals, diagnostics, insurance, home care, and emergency services — all under one membership.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
-            <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold">
-              Book Now <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
+            <a href="https://hospital-membership-platform.onrender.com/" target="_blank" rel="noopener noreferrer">
+              <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold">
+                Book Now <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </a>
             <Button size="lg" className="bg-black hover:bg-black/80 text-white font-semibold">
               View Membership Plans
             </Button>
@@ -270,10 +272,12 @@ export default function ServicesPage() {
       <section className="py-24 bg-primary text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <h2 className="text-5xl font-bold">Ready to Experience Premium Healthcare?</h2>
-          <p className="text-xl text-white/90">Join 25,000+ members enjoying seamless healthcare coordination</p>
-          <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold">
-            Start Your Journey <ArrowRight className="ml-2 w-4 h-4" />
-          </Button>
+          <p className="text-xl text-white/90">Join 100+ members enjoying seamless healthcare coordination in Bengaluru</p>
+          <a href="https://hospital-membership-platform.onrender.com/" target="_blank" rel="noopener noreferrer">
+            <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold">
+              Start Your Journey <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
+          </a>
         </div>
       </section>
 

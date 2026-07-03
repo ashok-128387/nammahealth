@@ -10,6 +10,9 @@ import { testimonials, stats, whyChooseUs } from '@/lib/data';
 import { useState, useEffect, useCallback } from 'react';
 
 const banners = [
+  { src: '/Hospital Services Banner.png', alt: 'Namma Health - Hospital Services' },
+  { src: '/Diagnostic Services Banner (1).png', alt: 'Namma Health - Diagnostic Services' },
+  { src: '/Health Check-Up Programs Banner.png', alt: 'Namma Health - Health Check-Up Programs' },
   { src: '/Editor-result-3.webp', alt: 'Namma Health - Complete Healthcare Ecosystem' },
   { src: '/HD Ambulance Banner 1 (1).png', alt: 'Namma Health - Ambulance Services' },
 ];
@@ -112,7 +115,7 @@ export default function Home() {
               </p>
               <p className="text-sm font-semibold text-primary">One Membership. Multiple Services. Complete Care.</p>
               <div className="flex flex-wrap gap-4 pt-2">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white" onClick={() => window.open('https://hospital-membership-platform.onrender.com/', '_blank')}>
                   Book Appointment <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
                 <Button size="lg" variant="outline" className="border-gray-300 text-foreground hover:bg-gray-50">
@@ -141,6 +144,14 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Service Area Notice */}
+      <div className="bg-primary/5 border-y border-primary/20 py-3">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center gap-2 text-sm text-primary font-medium">
+          <MapPin className="w-4 h-4 flex-shrink-0" />
+          Currently serving in <span className="font-bold">Bengaluru, Karnataka</span> &mdash; Expanding to more cities soon!
+        </div>
+      </div>
 
       {/* Why Choose Us Section */}
       <section className="py-20" style={{ backgroundColor: 'rgb(25, 165, 164)' }}>
@@ -447,16 +458,78 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Empanelled Partners Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <p className="text-sm font-semibold text-primary uppercase tracking-wide mb-2">Our Network</p>
+            <h2 className="text-4xl font-bold text-foreground mb-3">Empanelled Hospitals & Partners</h2>
+            <p className="text-gray-500 max-w-xl mx-auto">Trusted hospitals, diagnostic centres, pharmacies, and insurance partners across Bengaluru.</p>
+          </div>
+
+          {/* Hospitals */}
+          <div className="mb-10">
+            <h3 className="text-lg font-bold text-foreground mb-5 flex items-center gap-2">
+              <Building2 className="w-5 h-5 text-primary" /> Partner Hospitals — Bengaluru
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+              {['Manipal Hospital', 'Fortis Hospital', 'Columbia Asia', 'Narayana Health', 'Sakra World Hospital', 'BGS Gleneagles', 'Aster CMI Hospital', 'Apollo Hospital'].map((name) => (
+                <div key={name} className="bg-white border border-gray-200 rounded-xl p-4 flex items-center gap-3 hover:border-primary hover:shadow-sm transition">
+                  <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Building2 className="w-5 h-5 text-primary" />
+                  </div>
+                  <span className="text-sm font-medium text-foreground">{name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Diagnostic */}
+          <div className="mb-10">
+            <h3 className="text-lg font-bold text-foreground mb-5 flex items-center gap-2">
+              <FlaskConical className="w-5 h-5 text-primary" /> Diagnostic Centres — Bengaluru
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+              {['Thyrocare', 'Metropolis Labs', 'SRL Diagnostics', 'Vijaya Diagnostics', 'Neuberg Diagnostics', 'Redcliffe Labs'].map((name) => (
+                <div key={name} className="bg-white border border-gray-200 rounded-xl p-4 flex items-center gap-3 hover:border-primary hover:shadow-sm transition">
+                  <div className="w-9 h-9 rounded-lg bg-purple-50 flex items-center justify-center flex-shrink-0">
+                    <FlaskConical className="w-5 h-5 text-purple-600" />
+                  </div>
+                  <span className="text-sm font-medium text-foreground">{name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Insurance */}
+          <div>
+            <h3 className="text-lg font-bold text-foreground mb-5 flex items-center gap-2">
+              <ShieldCheck className="w-5 h-5 text-primary" /> Insurance Partners
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+              {['Star Health Insurance', 'HDFC ERGO', 'Niva Bupa', 'Care Health Insurance', 'Bajaj Allianz Health', 'ICICI Lombard'].map((name) => (
+                <div key={name} className="bg-white border border-gray-200 rounded-xl p-4 flex items-center gap-3 hover:border-primary hover:shadow-sm transition">
+                  <div className="w-9 h-9 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+                    <ShieldCheck className="w-5 h-5 text-green-600" />
+                  </div>
+                  <span className="text-sm font-medium text-foreground">{name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-24 bg-primary text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <h2 className="text-5xl font-bold">Ready to Experience Premium Healthcare?</h2>
-          <p className="text-xl text-white/90">
-            Join 25,000+ members enjoying seamless healthcare coordination
-          </p>
-          <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold">
-            Start Your Journey <ArrowRight className="ml-2 w-4 h-4" />
-          </Button>
+          <p className="text-xl text-white/90">Join 100+ members enjoying seamless healthcare coordination in Bengaluru</p>
+          <a href="https://hospital-membership-platform.onrender.com/" target="_blank" rel="noopener noreferrer">
+            <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold">
+              Start Your Journey <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
+          </a>
         </div>
       </section>
 

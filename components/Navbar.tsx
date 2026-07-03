@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { ChevronDown, Menu, X, Building2, FlaskConical, ShieldCheck, ClipboardCheck, Home, Ambulance, LayoutGrid } from 'lucide-react';
+import { ChevronDown, Menu, X, Building2, FlaskConical, ShieldCheck, ClipboardCheck, Home, Ambulance, LayoutGrid, Phone } from 'lucide-react';
 import NextImage from 'next/image';
 
 const serviceLinks = [
@@ -37,6 +37,11 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/20" style={{ backgroundColor: 'rgb(25, 165, 164)' }}>
+      {/* Emergency bar */}
+      <div className="bg-red-600 text-white text-xs py-1.5 text-center font-medium flex items-center justify-center gap-2">
+        <Phone className="w-3 h-3" />
+        Emergency? Call us 24/7 &nbsp;<a href="tel:+916360108440" className="font-bold underline underline-offset-2 hover:text-red-100">+91-6360108440</a>
+      </div>
       <div className="h-1 w-full bg-white/20" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
 
@@ -126,7 +131,9 @@ export default function Navbar() {
           {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
 
-        <Button className="hidden md:inline-flex bg-white hover:bg-white/90 font-semibold" style={{ color: 'rgb(25, 165, 164)' }}>Book Now</Button>
+        <a href="https://hospital-membership-platform.onrender.com/" target="_blank" rel="noopener noreferrer" className="hidden md:inline-flex">
+          <Button className="bg-white hover:bg-white/90 font-semibold" style={{ color: 'rgb(25, 165, 164)' }}>Book Now</Button>
+        </a>
       </div>
 
       {/* Mobile menu */}
@@ -159,7 +166,9 @@ export default function Navbar() {
           <Link href="/about" onClick={() => setMobileOpen(false)} className={`py-2 text-sm font-medium ${pathname === '/about' ? 'text-primary font-semibold' : 'text-foreground'}`}>About Us</Link>
           <Link href="/contact" onClick={() => setMobileOpen(false)} className={`py-2 text-sm font-medium ${pathname === '/contact' ? 'text-primary font-semibold' : 'text-foreground'}`}>Contact</Link>
 
-          <Button className="mt-2 bg-primary hover:bg-primary/90 text-white font-semibold w-full" style={{ backgroundColor: 'rgb(25, 165, 164)' }}>Book Now</Button>
+          <a href="https://hospital-membership-platform.onrender.com/" target="_blank" rel="noopener noreferrer" className="w-full">
+            <Button className="mt-2 bg-primary hover:bg-primary/90 text-white font-semibold w-full" style={{ backgroundColor: 'rgb(25, 165, 164)' }}>Book Now</Button>
+          </a>
         </div>
       )}
     </header>

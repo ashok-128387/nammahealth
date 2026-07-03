@@ -7,7 +7,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 const services = [
-  { icon: Building2, name: 'Hospital Services', desc: 'End-to-end coordination for OPD, surgeries, inpatient care, and post-discharge follow-up across 126+ partner hospitals.' },
+  { icon: Building2, name: 'Hospital Services', desc: 'End-to-end coordination for OPD, surgeries, inpatient care, and post-discharge follow-up across our partner hospitals in Bengaluru.' },
   { icon: FlaskConical, name: 'Diagnostic Services', desc: 'Blood tests, imaging (X-ray, CT, MRI), ECG, and home sample collection with same-day digital reports.' },
   { icon: ShieldCheck, name: 'Health Insurance Services', desc: 'Cashless hospitalization, claim support, and customized coverage plans for individuals, families, and corporates.' },
   { icon: ClipboardCheck, name: 'Health Check-Up Services', desc: 'Preventive full-body screening packages tailored by age, gender, and lifestyle for early detection.' },
@@ -21,7 +21,7 @@ const forCustomers = [
   { icon: Shield, title: 'Transparent Pricing', desc: 'No hidden charges. Clear, upfront costs for every service with member-exclusive discounts.' },
   { icon: Users, title: 'Family & Corporate Plans', desc: 'Flexible membership tiers for individuals, families, and organisations of all sizes.' },
   { icon: Check, title: 'Hassle-Free Coordination', desc: 'We handle paperwork, pre-authorisations, and follow-ups so you can focus on recovery.' },
-  { icon: Handshake, title: 'Trusted Partner Network', desc: 'Access to 126+ accredited hospitals, certified labs, and verified healthcare professionals.' },
+  { icon: Handshake, title: 'Trusted Partner Network', desc: 'Access to 20+ accredited hospitals, certified labs, and verified healthcare professionals in Bengaluru.' },
 ];
 
 const values = [
@@ -129,10 +129,10 @@ export default function AboutPage() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { number: '126+', label: 'Partner Hospitals' },
-                { number: '1000+', label: 'Healthcare Professionals' },
-                { number: '25,000+', label: 'Members Served' },
-                { number: '15+', label: 'Cities Covered' },
+                { number: '20+', label: 'Partner Hospitals' },
+                { number: '50+', label: 'Healthcare Professionals' },
+                { number: '100+', label: 'Members Served' },
+                { number: '1', label: 'City: Bengaluru' },
               ].map((item, i) => (
                 <div key={i} className="bg-white rounded-2xl p-6 border border-gray-200 text-center hover:border-primary transition">
                   <p className="text-3xl font-bold text-primary mb-1">{item.number}</p>
@@ -200,7 +200,7 @@ export default function AboutPage() {
       <section className="py-24 bg-primary text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <h2 className="text-5xl font-bold">Ready to Experience Premium Healthcare?</h2>
-          <p className="text-xl text-white/90">Join 25,000+ members enjoying seamless healthcare coordination</p>
+          <p className="text-xl text-white/90">Join 100+ members enjoying seamless healthcare coordination in Bengaluru</p>
           <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold">
             Start Your Journey <ArrowRight className="ml-2 w-4 h-4" />
           </Button>
