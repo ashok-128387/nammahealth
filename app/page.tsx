@@ -473,7 +473,7 @@ export default function Home() {
               <Building2 className="w-5 h-5 text-primary" /> Partner Hospitals — Bengaluru
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-              {['Manipal Hospital', 'Fortis Hospital', 'Columbia Asia', 'Narayana Health', 'Sakra World Hospital', 'BGS Gleneagles', 'Aster CMI Hospital', 'Apollo Hospital'].map((name) => (
+              {['Fortis Hospital', 'Kauvery Hospital', 'HCG Hospital'].map((name) => (
                 <div key={name} className="bg-white border border-gray-200 rounded-xl p-4 flex items-center gap-3 hover:border-primary hover:shadow-sm transition">
                   <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <Building2 className="w-5 h-5 text-primary" />
@@ -487,27 +487,37 @@ export default function Home() {
           {/* Diagnostic */}
           <div className="mb-10">
             <h3 className="text-lg font-bold text-foreground mb-5 flex items-center gap-2">
-              <FlaskConical className="w-5 h-5 text-primary" /> Diagnostic Centres — Bengaluru
+              <FlaskConical className="w-5 h-5 text-primary" /> Diagnostic Partners — Bengaluru
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-              {['Thyrocare', 'Metropolis Labs', 'SRL Diagnostics', 'Vijaya Diagnostics', 'Neuberg Diagnostics', 'Redcliffe Labs'].map((name) => (
-                <div key={name} className="bg-white border border-gray-200 rounded-xl p-4 flex items-center gap-3 hover:border-primary hover:shadow-sm transition">
-                  <div className="w-9 h-9 rounded-lg bg-purple-50 flex items-center justify-center flex-shrink-0">
-                    <FlaskConical className="w-5 h-5 text-purple-600" />
-                  </div>
-                  <span className="text-sm font-medium text-foreground">{name}</span>
+              <div className="bg-white border border-gray-200 rounded-xl p-4 flex items-center gap-3 hover:border-primary hover:shadow-sm transition">
+                <div className="w-9 h-9 rounded-lg bg-purple-50 flex items-center justify-center flex-shrink-0">
+                  <FlaskConical className="w-5 h-5 text-purple-600" />
                 </div>
-              ))}
+                <div>
+                  <span className="text-sm font-medium text-foreground block">QXL</span>
+                  <span className="text-xs text-gray-400">Diagnostic Centre</span>
+                </div>
+              </div>
+              <div className="bg-white border border-gray-200 rounded-xl p-4 flex items-center gap-3 hover:border-primary hover:shadow-sm transition">
+                <div className="w-9 h-9 rounded-lg bg-orange-50 flex items-center justify-center flex-shrink-0">
+                  <FlaskConical className="w-5 h-5 text-orange-500" />
+                </div>
+                <div>
+                  <span className="text-sm font-medium text-foreground block">Orange Health</span>
+                  <span className="text-xs text-gray-400">Diagnostic Centre</span>
+                </div>
+              </div>
             </div>
           </div>
 
           {/* Insurance */}
           <div>
             <h3 className="text-lg font-bold text-foreground mb-5 flex items-center gap-2">
-              <ShieldCheck className="w-5 h-5 text-primary" /> Insurance Partners
+              <ShieldCheck className="w-5 h-5 text-primary" /> Health Insurance Partners
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-              {['Star Health Insurance', 'HDFC ERGO', 'Niva Bupa', 'Care Health Insurance', 'Bajaj Allianz Health', 'ICICI Lombard'].map((name) => (
+              {['HDFC ERGO', 'Care Health Insurance'].map((name) => (
                 <div key={name} className="bg-white border border-gray-200 rounded-xl p-4 flex items-center gap-3 hover:border-primary hover:shadow-sm transition">
                   <div className="w-9 h-9 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
                     <ShieldCheck className="w-5 h-5 text-green-600" />
@@ -515,6 +525,41 @@ export default function Home() {
                   <span className="text-sm font-medium text-foreground">{name}</span>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Insurance Company Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <p className="text-sm font-semibold text-primary uppercase tracking-wide mb-2">Our Partners</p>
+            <h2 className="text-4xl font-bold text-foreground mb-3">Insurance Company</h2>
+            <p className="text-gray-500 max-w-xl mx-auto">We work with leading health insurance providers to ensure seamless coverage for our members.</p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-8">
+            <div className="flex flex-col items-center gap-4 bg-gray-50 border border-gray-200 rounded-2xl p-8 hover:border-primary hover:shadow-md transition w-64">
+              <div className="relative w-40 h-24">
+                <Image
+                  src="/WhatsApp Image 2026-07-04 at 6.48.38 AM.jpeg"
+                  alt="Care Health Insurance"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <span className="text-sm font-semibold text-foreground">Care Health Insurance</span>
+            </div>
+            <div className="flex flex-col items-center gap-4 bg-gray-50 border border-gray-200 rounded-2xl p-8 hover:border-primary hover:shadow-md transition w-64">
+              <div className="relative w-40 h-24">
+                <Image
+                  src="/WhatsApp Image 2026-07-04 at 6.48.38 AM (1).jpeg"
+                  alt="HDFC ERGO"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <span className="text-sm font-semibold text-foreground">HDFC ERGO</span>
             </div>
           </div>
         </div>
