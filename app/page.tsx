@@ -530,36 +530,36 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Insurance Company Section */}
+      {/* Diagnostic Partners Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-sm font-semibold text-primary uppercase tracking-wide mb-2">Our Partners</p>
-            <h2 className="text-4xl font-bold text-foreground mb-3">Insurance Company</h2>
-            <p className="text-gray-500 max-w-xl mx-auto">We work with leading health insurance providers to ensure seamless coverage for our members.</p>
+            <h2 className="text-4xl font-bold text-foreground mb-3">Diagnostic Centres</h2>
+            <p className="text-gray-500 max-w-xl mx-auto">We work with leading diagnostic labs to ensure accurate, timely testing for our members.</p>
           </div>
           <div className="flex flex-wrap justify-center gap-8">
             <div className="flex flex-col items-center gap-4 bg-gray-50 border border-gray-200 rounded-2xl p-8 hover:border-primary hover:shadow-md transition w-64">
               <div className="relative w-40 h-24">
                 <Image
                   src="/WhatsApp Image 2026-07-04 at 6.48.38 AM.jpeg"
-                  alt="Care Health Insurance"
+                  alt="QXL Diagnostics"
                   fill
                   className="object-contain"
                 />
               </div>
-              <span className="text-sm font-semibold text-foreground">Care Health Insurance</span>
+              <span className="text-sm font-semibold text-foreground">QXL Diagnostics</span>
             </div>
             <div className="flex flex-col items-center gap-4 bg-gray-50 border border-gray-200 rounded-2xl p-8 hover:border-primary hover:shadow-md transition w-64">
               <div className="relative w-40 h-24">
                 <Image
                   src="/WhatsApp Image 2026-07-04 at 6.48.38 AM (1).jpeg"
-                  alt="HDFC ERGO"
+                  alt="Nueclear"
                   fill
                   className="object-contain"
                 />
               </div>
-              <span className="text-sm font-semibold text-foreground">HDFC ERGO</span>
+              <span className="text-sm font-semibold text-foreground">Nueclear</span>
             </div>
           </div>
         </div>
