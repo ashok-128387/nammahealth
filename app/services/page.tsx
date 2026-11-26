@@ -105,7 +105,7 @@ export default function ServicesPage() {
               <a href={PHONE} className="rounded-full text-white font-semibold px-10 py-4 transition hover:opacity-90" style={{ backgroundColor: NAVY }}>
                 Request Assistance
               </a>
-              <Link href="/#membership" className="rounded-full border border-gray-400 text-[#001939] font-semibold px-10 py-4 hover:bg-white transition">
+              <Link href="/membership" className="rounded-full border border-gray-400 text-[#001939] font-semibold px-10 py-4 hover:bg-white transition">
                 View Pricing
               </Link>
             </div>
