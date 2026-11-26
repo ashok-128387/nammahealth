@@ -51,7 +51,7 @@ export default function Navbar() {
         </Link>
 
         {/* Nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-6">
           <Link
             href="/"
             className={`text-sm font-medium transition hover:text-white/70 ${pathname === '/' ? 'text-white font-semibold' : 'text-white'}`}
@@ -121,6 +121,12 @@ export default function Navbar() {
             For Corporate
           </Link>
           <Link
+            href="/insurance-partners"
+            className={`text-sm font-medium transition hover:text-white/70 ${pathname === '/insurance-partners' ? 'text-white font-semibold' : 'text-white'}`}
+          >
+            Insurance Partners
+          </Link>
+          <Link
             href="/about"
             className={`text-sm font-medium transition hover:text-white/70 ${pathname === '/about' ? 'text-white font-semibold' : 'text-white'}`}
           >
@@ -136,21 +142,21 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden text-white p-1"
+          className="lg:hidden text-white p-1"
           onClick={() => setMobileOpen((v) => !v)}
           aria-label="Toggle menu"
         >
           {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
 
-        <a href="https://hospital-membership-platform.onrender.com/" target="_blank" rel="noopener noreferrer" className="hidden md:inline-flex">
+        <a href="https://hospital-membership-platform.onrender.com/" target="_blank" rel="noopener noreferrer" className="hidden lg:inline-flex">
           <Button className="bg-white hover:bg-white/90 font-semibold" style={{ color: '#001939' }}>Book Now</Button>
         </a>
       </div>
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-white border-t border-white/20 px-4 py-3 flex flex-col gap-1">
+        <div className="lg:hidden bg-white border-t border-white/20 px-4 py-3 flex flex-col gap-1">
           <Link href="/" onClick={() => setMobileOpen(false)} className={`py-2 text-sm font-medium ${pathname === '/' ? 'text-primary font-semibold' : 'text-foreground'}`}>Home</Link>
 
           <button
@@ -177,6 +183,7 @@ export default function Navbar() {
 
           <Link href="/membership" onClick={() => setMobileOpen(false)} className={`py-2 text-sm font-medium ${pathname === '/membership' ? 'text-primary font-semibold' : 'text-foreground'}`}>Membership</Link>
           <Link href="/corporate" onClick={() => setMobileOpen(false)} className={`py-2 text-sm font-medium ${pathname === '/corporate' ? 'text-primary font-semibold' : 'text-foreground'}`}>For Corporate</Link>
+          <Link href="/insurance-partners" onClick={() => setMobileOpen(false)} className={`py-2 text-sm font-medium ${pathname === '/insurance-partners' ? 'text-primary font-semibold' : 'text-foreground'}`}>Insurance Partners</Link>
           <Link href="/about" onClick={() => setMobileOpen(false)} className={`py-2 text-sm font-medium ${pathname === '/about' ? 'text-primary font-semibold' : 'text-foreground'}`}>About Us</Link>
           <Link href="/contact" onClick={() => setMobileOpen(false)} className={`py-2 text-sm font-medium ${pathname === '/contact' ? 'text-primary font-semibold' : 'text-foreground'}`}>Contact</Link>
 
