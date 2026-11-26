@@ -115,6 +115,12 @@ export default function Navbar() {
             Membership
           </Link>
           <Link
+            href="/corporate"
+            className={`text-sm font-medium transition hover:text-white/70 ${pathname === '/corporate' ? 'text-white font-semibold' : 'text-white'}`}
+          >
+            For Corporate
+          </Link>
+          <Link
             href="/about"
             className={`text-sm font-medium transition hover:text-white/70 ${pathname === '/about' ? 'text-white font-semibold' : 'text-white'}`}
           >
@@ -170,6 +176,7 @@ export default function Navbar() {
           )}
 
           <Link href="/membership" onClick={() => setMobileOpen(false)} className={`py-2 text-sm font-medium ${pathname === '/membership' ? 'text-primary font-semibold' : 'text-foreground'}`}>Membership</Link>
+          <Link href="/corporate" onClick={() => setMobileOpen(false)} className={`py-2 text-sm font-medium ${pathname === '/corporate' ? 'text-primary font-semibold' : 'text-foreground'}`}>For Corporate</Link>
           <Link href="/about" onClick={() => setMobileOpen(false)} className={`py-2 text-sm font-medium ${pathname === '/about' ? 'text-primary font-semibold' : 'text-foreground'}`}>About Us</Link>
           <Link href="/contact" onClick={() => setMobileOpen(false)} className={`py-2 text-sm font-medium ${pathname === '/contact' ? 'text-primary font-semibold' : 'text-foreground'}`}>Contact</Link>
 
