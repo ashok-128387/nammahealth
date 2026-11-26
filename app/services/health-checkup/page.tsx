@@ -6,6 +6,7 @@ import { ArrowRight, MessageCircleQuestion, ArrowLeft, Building2, CalendarDays, 
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { ServiceHero } from '@/components/ServiceUI';
 
 const features = [
   { icon: Building2, title: 'Corporate Health Check-Ups', desc: 'Organized health screening camps and check-up programs for employees at your workplace or partner centres.' },
@@ -51,44 +52,26 @@ export default function HealthCheckupPage() {
         </div>
       </div>
 
-      <section className="py-20 bg-primary text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/services" className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm mb-8 transition">
-            <ArrowLeft className="w-4 h-4" /> Back to All Services
-          </Link>
-          <div className="grid md:grid-cols-2 gap-10 items-center">
-            <div className="flex items-start gap-6">
-              <div className="w-20 h-20 rounded-2xl bg-white/15 flex items-center justify-center flex-shrink-0">
-                <ClipboardCheck className="w-10 h-10 text-white" />
-              </div>
-              <div>
-                <p className="text-white/70 text-sm font-semibold uppercase tracking-wide mb-2">Core Service</p>
-                <h1 className="text-5xl font-bold mb-4">Health Check-Up Programs</h1>
-                <p className="text-white/80 text-lg max-w-2xl">Preventive healthcare made easy with structured health check-up programs for individuals, families, and organizations coordinated end-to-end by Namma Health.</p>
-              </div>
-            </div>
-            <div className="hidden md:flex items-center justify-center">
-              <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl" style={{ maxHeight: '380px' }}>
-                <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=700&q=80" alt="Health checkup" className="w-full h-full object-cover" style={{ maxHeight: '380px' }} />
-                <div className="absolute inset-0 rounded-2xl" style={{ background: 'linear-gradient(135deg, rgba(0,25,57,0.25) 0%, transparent 60%)' }} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServiceHero
+        badgeIcon={ClipboardCheck}
+        badge="Core Service"
+        title="Health Check-Up Programs"
+        desc="Preventive healthcare made easy with structured health check-up programs for individuals, families, and organizations coordinated end-to-end by Namma Health."
+        steps={steps}
+      />
 
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-sm font-semibold text-primary uppercase tracking-wide mb-2">What's Included</p>
-            <h2 className="text-4xl font-bold text-foreground mb-3">Check-Up Programs</h2>
+            <p className="inline-block rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-sm font-semibold px-4 py-1.5 mb-4">What's Included</p>
+            <h2 className="text-4xl font-bold text-primary mb-3">Check-Up Programs</h2>
             <p className="text-gray-500 max-w-xl mx-auto">Preventive care programs tailored for individuals and organizations.</p>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             {features.map((f) => (
-              <div key={f.title} className="bg-white rounded-2xl border border-gray-200 p-8 hover:border-primary hover:shadow-md transition duration-300">
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
-                  <f.icon className="w-7 h-7 text-primary" />
+              <div key={f.title} className="bg-white rounded-2xl border border-gray-200 p-8 shadow-sm hover:shadow-lg transition duration-300">
+                <div className="w-14 h-14 rounded-xl bg-[#0B2E5E] flex items-center justify-center mb-5">
+                  <f.icon className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="font-bold text-xl text-foreground mb-2">{f.title}</h3>
                 <p className="text-gray-500 leading-relaxed">{f.desc}</p>
@@ -101,15 +84,15 @@ export default function HealthCheckupPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-sm font-semibold text-primary uppercase tracking-wide mb-2">Simple Process</p>
-            <h2 className="text-4xl font-bold text-foreground">How It Works</h2>
+            <p className="inline-block rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-sm font-semibold px-4 py-1.5 mb-4">Simple Process</p>
+            <h2 className="text-4xl font-bold text-primary">How It Works</h2>
           </div>
           <div className="grid md:grid-cols-4 gap-6">
             {steps.map((s, i) => (
               <div key={i} className="relative p-6 rounded-2xl border border-gray-200 hover:border-primary hover:shadow-md transition duration-300">
                 <span className="text-6xl font-black text-primary/10 absolute top-4 right-5 leading-none">{s.step}</span>
                 <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm mb-4">{s.step}</div>
-                <h3 className="font-bold text-foreground mb-2">{s.title}</h3>
+                <h3 className="text-xl font-bold text-primary mb-2">{s.title}</h3>
                 <p className="text-sm text-gray-500">{s.desc}</p>
               </div>
             ))}
@@ -120,16 +103,16 @@ export default function HealthCheckupPage() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-sm font-semibold text-primary uppercase tracking-wide mb-2">Why Us</p>
-            <h2 className="text-4xl font-bold text-foreground mb-3">Why Choose Namma Health?</h2>
+            <p className="inline-block rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-sm font-semibold px-4 py-1.5 mb-4">Why Us</p>
+            <h2 className="text-4xl font-bold text-primary mb-3">Why Choose Namma Health?</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {whyUs.map((item) => (
-              <div key={item.title} className="bg-white rounded-2xl border border-gray-200 p-6 hover:border-primary hover:shadow-md transition duration-300">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                  <item.icon className="w-6 h-6 text-primary" />
+              <div key={item.title} className="bg-white rounded-2xl border border-gray-200 p-7 shadow-sm hover:shadow-lg transition duration-300">
+                <div className="w-12 h-12 rounded-xl bg-[#0B2E5E] flex items-center justify-center mb-5">
+                  <item.icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="font-bold text-foreground mb-2">{item.title}</h3>
+                <h3 className="text-xl font-bold text-primary mb-2">{item.title}</h3>
                 <p className="text-sm text-gray-500">{item.desc}</p>
               </div>
             ))}
@@ -143,7 +126,7 @@ export default function HealthCheckupPage() {
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
               <MessageCircleQuestion className="w-4 h-4" /> FAQs
             </div>
-            <h2 className="text-4xl font-bold text-foreground">Frequently Asked Questions</h2>
+            <h2 className="text-4xl font-bold text-primary">Frequently Asked Questions</h2>
           </div>
           <Accordion type="single" collapsible className="space-y-3">
             {faqs.map((faq, i) => (
@@ -162,12 +145,12 @@ export default function HealthCheckupPage() {
           <p className="text-xl text-white/90">Prevention is better than cure. Let us coordinate your check-up end-to-end.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="https://hospital-membership-platform.onrender.com/" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold">
+              <Button size="lg" className="rounded-full px-8 bg-amber-400 text-primary hover:bg-amber-300 font-semibold">
                 Book Now <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </a>
             <Link href="/services">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 font-semibold">View All Services</Button>
+              <Button size="lg" variant="outline" className="rounded-full px-8 bg-transparent border-white/40 text-white hover:bg-white/10 hover:text-white font-semibold">View All Services</Button>
             </Link>
           </div>
         </div>

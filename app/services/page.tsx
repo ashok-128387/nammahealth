@@ -2,71 +2,63 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, MessageCircleQuestion, Check, Building2, FlaskConical, ShieldCheck, ClipboardCheck, Home, Ambulance, Target, Sparkles, Globe, PhoneCall, BadgeDollarSign } from 'lucide-react';
+import { ArrowRight, MessageCircleQuestion, Check, Building2, FlaskConical, ShieldCheck, ClipboardCheck, Home, Ambulance, Target, Sparkles, Globe, PhoneCall, BadgeDollarSign, BadgeCheck, Headset, Asterisk } from 'lucide-react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import Image from 'next/image';
+import type { LucideIcon } from 'lucide-react';
+import { Badge, ServiceCard, NAVY, PHONE } from '@/components/ServiceUI';
 
-const services = [
+const services: { icon: LucideIcon; name: string; desc: string; href: string; points: string[]; cta: string; emergency?: boolean }[] = [
   {
     icon: Building2,
     name: 'Hospital Services',
     desc: 'Doctor appointments, OPD consultations, inpatient admission, surgery booking, and full hospital coordination through our partner network.',
     href: '/services/hospital',
-    points: ['Doctor Appointment Booking', 'Inpatient Admission Support', 'Surgery Booking & Coordination', 'OPD Diagnostic Coordination'],
-    color: 'bg-blue-50 border-blue-100',
-    iconBg: 'bg-blue-100',
-    iconColor: 'text-blue-600',
+    points: ['Doctor appointment booking', 'Inpatient admission support', 'Surgery booking & coordination'],
+    cta: 'Explore Service',
   },
   {
     icon: FlaskConical,
     name: 'Diagnostic Services',
     desc: 'MRI, CT Scan, Ultrasound, blood tests, PET Scan, EEG, Endoscopy and more via NABL/NABH-accredited centres with report coordination.',
     href: '/services/diagnostic',
-    points: ['MRI, CT Scan & Ultrasound', 'Blood & Lab Tests', 'PET Scan, EEG & Endoscopy', 'Report Coordination'],
-    color: 'bg-purple-50 border-purple-100',
-    iconBg: 'bg-purple-100',
-    iconColor: 'text-purple-600',
+    points: ['MRI, CT scan & ultrasound', 'Blood & lab tests', 'Report coordination'],
+    cta: 'Book a Service',
   },
   {
     icon: ShieldCheck,
     name: 'Health Insurance Support',
     desc: 'New policy purchase, portability support, insurance consultation, and corporate health insurance services all in one place.',
     href: '/services/insurance',
-    points: ['New Policy Purchase', 'Insurance Portability Support', 'Insurance Consultation', 'Corporate Health Insurance'],
-    color: 'bg-green-50 border-green-100',
-    iconBg: 'bg-green-100',
-    iconColor: 'text-green-600',
+    points: ['New policy purchase', 'Portability support', 'Corporate health insurance'],
+    cta: 'Get Assistance',
   },
   {
     icon: ClipboardCheck,
     name: 'Health Check-Up Programs',
     desc: 'Corporate, annual preventive, and pre/post check-up coordination with employee wellness program support for individuals and organizations.',
     href: '/services/health-checkup',
-    points: ['Annual Preventive Check-Ups', 'Corporate Health Check-Ups', 'Pre & Post Check-Up Coordination', 'Employee Wellness Programs'],
-    color: 'bg-teal-50 border-teal-100',
-    iconBg: 'bg-teal-100',
-    iconColor: 'text-teal-600',
+    points: ['Annual preventive check-ups', 'Corporate health check-ups', 'Employee wellness programs'],
+    cta: 'Explore Service',
   },
   {
     icon: Home,
     name: 'Home Care Services',
     desc: 'Home nursing and patient caretaker services through verified partner professionals for recovery, elderly care, and long-term needs.',
     href: '/services/home-care',
-    points: ['Home Nursing Services', 'Patient Caretaker Services', 'Post-Surgery Recovery Care', 'Elderly Care Support'],
-    color: 'bg-orange-50 border-orange-100',
-    iconBg: 'bg-orange-100',
-    iconColor: 'text-orange-600',
+    points: ['Home nursing services', 'Post-surgery recovery care', 'Elderly care support'],
+    cta: 'Explore Service',
   },
   {
-    icon: Ambulance,
-    name: 'Ambulance Services',
+    icon: Asterisk,
+    name: 'Emergency & Ambulance',
     desc: 'BLS & ALS ambulances, inter-hospital transfers, and emergency/non-emergency transport available 24/7 through our partner network.',
     href: '/services/ambulance',
-    points: ['BLS & ALS Ambulances', 'Inter-Hospital Transfers', 'Emergency Transport 24/7', 'Non-Emergency Transfers'],
-    color: 'bg-red-50 border-red-100',
-    iconBg: 'bg-red-100',
-    iconColor: 'text-red-600',
+    points: ['24/7 ambulance dispatch', 'BLS & ALS ambulances', 'Inter-hospital transfers'],
+    cta: 'Get Emergency Help',
+    emergency: true,
   },
 ];
 
@@ -98,23 +90,36 @@ export default function ServicesPage() {
     <div className="min-h-screen bg-white">
       <Navbar />
 
-      {/* Hero — centered */}
-      <section className="bg-primary text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-white/60 mb-4">All-In-One Healthcare Ecosystem</p>
-          <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">Our Core Services</h1>
-          <p className="text-white/80 text-lg mb-8 leading-relaxed max-w-2xl mx-auto">
-            End-to-end healthcare coordination across hospitals, diagnostics, insurance, home care, and emergency services — all under one membership.
-          </p>
-          <div className="flex flex-wrap gap-3 justify-center">
-            <a href="https://hospital-membership-platform.onrender.com/" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold">
-                Book Now <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-            </a>
-            <Button size="lg" className="bg-black hover:bg-black/80 text-white font-semibold">
-              View Membership Plans
-            </Button>
+      {/* Hero — light with image card */}
+      <section className="relative overflow-hidden py-16 md:py-24" style={{ backgroundColor: '#F9F8F6', backgroundImage: 'radial-gradient(#d9d6d0 1px, transparent 1px)', backgroundSize: '22px 22px' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-7">
+            <Badge icon={BadgeCheck}>Comprehensive Care</Badge>
+            <h1 className="text-4xl md:text-6xl font-bold leading-[1.1]" style={{ color: NAVY }}>
+              Complete Healthcare Coordination Services
+            </h1>
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl">
+              From finding the right specialist to managing hospital discharges, we coordinate every step of your healthcare journey with precision and empathy.
+            </p>
+            <div className="flex flex-wrap gap-4 pt-2">
+              <a href={PHONE} className="rounded-full text-white font-semibold px-10 py-4 transition hover:opacity-90" style={{ backgroundColor: NAVY }}>
+                Request Assistance
+              </a>
+              <Link href="/#membership" className="rounded-full border border-gray-400 text-[#001939] font-semibold px-10 py-4 hover:bg-white transition">
+                View Pricing
+              </Link>
+            </div>
+          </div>
+          <div className="relative">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
+              <Image src="/images/patient-care.jpg" alt="Namma Health care coordinator with a patient" fill className="object-cover" priority />
+            </div>
+            <div className="absolute -bottom-6 left-4 right-4 sm:left-8 sm:right-auto sm:min-w-[340px] bg-white rounded-xl shadow-xl px-6 py-5 flex items-center gap-5">
+              <div className="w-14 h-14 rounded-full bg-amber-400 flex items-center justify-center flex-shrink-0">
+                <Headset className="w-6 h-6" style={{ color: NAVY }} />
+              </div>
+              <p className="text-xl font-medium" style={{ color: NAVY }}>24/7 Care Coordination</p>
+            </div>
           </div>
         </div>
       </section>
@@ -134,52 +139,27 @@ export default function ServicesPage() {
       </div>
 
       {/* Services */}
-      <section className="py-20 bg-gray-50">
+      <section className="pt-28 pb-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <p className="text-sm font-semibold text-primary uppercase tracking-wide mb-2">What We Offer</p>
-            <h2 className="text-4xl font-bold text-foreground mb-3">Explore Our Services</h2>
+            <p className="inline-block rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-sm font-semibold px-4 py-1.5 mb-4">What We Offer</p>
+            <h2 className="text-4xl font-bold text-primary mb-3">Explore Our Services</h2>
             <p className="text-gray-500 max-w-xl mx-auto">Each service is coordinated end-to-end by our dedicated care team.</p>
           </div>
 
-          <div className="space-y-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, i) => (
-              <div key={service.name} className={`rounded-2xl border p-8 ${service.color} transition duration-300 hover:shadow-md`}>
-                <div className={`flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 items-center`}>
-
-                  {/* Icon + Name side */}
-                  <div className="flex-shrink-0 flex flex-col items-center md:items-start gap-4 md:w-56 text-center md:text-left">
-                    <div className={`w-20 h-20 rounded-2xl ${service.iconBg} flex items-center justify-center`}>
-                      <service.icon className={`w-10 h-10 ${service.iconColor}`} />
-                    </div>
-                    <h3 className="text-2xl font-bold text-foreground">{service.name}</h3>
-                    <Link href={service.href}>
-                      <Button className="bg-primary hover:bg-primary/90 text-white font-semibold text-sm">
-                        Learn More <ArrowRight className="ml-1.5 w-3.5 h-3.5" />
-                      </Button>
-                    </Link>
-                  </div>
-
-                  {/* Divider */}
-                  <div className="hidden md:block w-px self-stretch bg-gray-200" />
-
-                  {/* Content side */}
-                  <div className="flex-1">
-                    <p className="text-gray-600 leading-relaxed mb-6">{service.desc}</p>
-                    <div className="grid sm:grid-cols-2 gap-2">
-                      {service.points.map((point) => (
-                        <div key={point} className="flex items-center gap-2.5 text-sm text-gray-700">
-                          <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                            <Check className="w-3 h-3 text-primary" />
-                          </div>
-                          {point}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                </div>
-              </div>
+              <ServiceCard
+                key={service.name}
+                icon={service.icon}
+                title={service.name}
+                desc={service.desc}
+                points={service.points}
+                href={service.href}
+                cta={service.cta}
+                index={i}
+                emergency={service.emergency}
+              />
             ))}
           </div>
 
@@ -206,13 +186,13 @@ export default function ServicesPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <p className="text-sm font-semibold text-primary uppercase tracking-wide mb-3">Why Us</p>
-              <h2 className="text-4xl font-bold text-foreground mb-4">Why Choose Namma Health?</h2>
+              <h2 className="text-4xl font-bold text-primary mb-4">Why Choose Namma Health?</h2>
               <p className="text-gray-500 mb-10">A trusted partner for all your healthcare coordination needs from a single appointment to complete family care.</p>
               <div className="space-y-5">
                 {whyChooseUs.map((item) => (
                   <div key={item.title} className="flex items-start gap-4">
                     <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <item.icon className="w-5 h-5 text-primary" />
+                      <item.icon className="w-5 h-5 text-white" />
                     </div>
                     <div>
                       <p className="font-bold text-foreground mb-0.5">{item.title}</p>
@@ -255,7 +235,7 @@ export default function ServicesPage() {
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
               <MessageCircleQuestion className="w-4 h-4" /> FREQUENTLY ASKED QUESTIONS
             </div>
-            <h2 className="text-4xl font-bold text-foreground">Frequently Asked Questions</h2>
+            <h2 className="text-4xl font-bold text-primary">Frequently Asked Questions</h2>
           </div>
           <Accordion type="single" collapsible className="space-y-3">
             {faqs.map((faq, i) => (
@@ -274,7 +254,7 @@ export default function ServicesPage() {
           <h2 className="text-5xl font-bold">Ready to Experience Premium Healthcare?</h2>
           <p className="text-xl text-white/90">Join 100+ members enjoying seamless healthcare coordination in Bengaluru</p>
           <a href="https://hospital-membership-platform.onrender.com/" target="_blank" rel="noopener noreferrer">
-            <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold">
+            <Button size="lg" className="rounded-full px-8 bg-amber-400 text-primary hover:bg-amber-300 font-semibold">
               Start Your Journey <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </a>

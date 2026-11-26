@@ -403,7 +403,7 @@ export default function Home() {
       </section>
 
       {/* Membership Plans Section */}
-      <section className="py-20 bg-white">
+      <section id="membership" className="py-20 bg-white scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <p className="text-sm font-semibold text-primary uppercase tracking-wide mb-2">Pricing</p>
