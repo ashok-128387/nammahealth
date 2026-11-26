@@ -36,7 +36,7 @@ export default function Navbar() {
   const isServicesActive = pathname.startsWith('/services');
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/20" style={{ backgroundColor: 'rgb(25, 165, 164)' }}>
+    <header className="sticky top-0 z-50 border-b border-white/20" style={{ backgroundColor: '#001939' }}>
       {/* Emergency bar */}
       <div className="bg-red-600 text-white text-xs py-1.5 text-center font-medium flex items-center justify-center gap-2">
         <Phone className="w-3 h-3" />
@@ -132,7 +132,7 @@ export default function Navbar() {
         </button>
 
         <a href="https://hospital-membership-platform.onrender.com/" target="_blank" rel="noopener noreferrer" className="hidden md:inline-flex">
-          <Button className="bg-white hover:bg-white/90 font-semibold" style={{ color: 'rgb(25, 165, 164)' }}>Book Now</Button>
+          <Button className="bg-white hover:bg-white/90 font-semibold" style={{ color: '#001939' }}>Book Now</Button>
         </a>
       </div>
 
@@ -167,7 +167,7 @@ export default function Navbar() {
           <Link href="/contact" onClick={() => setMobileOpen(false)} className={`py-2 text-sm font-medium ${pathname === '/contact' ? 'text-primary font-semibold' : 'text-foreground'}`}>Contact</Link>
 
           <a href="https://hospital-membership-platform.onrender.com/" target="_blank" rel="noopener noreferrer" className="w-full">
-            <Button className="mt-2 bg-primary hover:bg-primary/90 text-white font-semibold w-full" style={{ backgroundColor: 'rgb(25, 165, 164)' }}>Book Now</Button>
+            <Button className="mt-2 bg-primary hover:bg-primary/90 text-white font-semibold w-full" style={{ backgroundColor: '#001939' }}>Book Now</Button>
           </a>
         </div>
       )}

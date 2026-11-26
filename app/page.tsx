@@ -2,7 +2,7 @@
 
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { ArrowRight, Check, Star, MapPin, Phone, Mail, MessageCircleQuestion, ChevronLeft, ChevronRight, Quote, User, Users, Building2, Hospital, FlaskConical, ShieldCheck, HeartPulse, Home as HomeIcon, Ambulance, Target, Globe, Sparkles, BadgeDollarSign, PhoneCall, AlertTriangle, Clock } from 'lucide-react';
+import { ArrowRight, Check, Star, MapPin, Phone, Mail, MessageCircleQuestion, ChevronLeft, ChevronRight, Quote, User, Users, Building2, Hospital, FlaskConical, ShieldCheck, HeartPulse, Home as HomeIcon, Ambulance, Target, Globe, Sparkles, BadgeDollarSign, PhoneCall, AlertTriangle, Clock, X, Send } from 'lucide-react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import Navbar from '@/components/Navbar';
 import Image from 'next/image';
@@ -90,10 +90,71 @@ function HeroBanner() {
   );
 }
 
+function ContactPopup() {
+  const [open, setOpen] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (sessionStorage.getItem('nh_popup_shown')) return;
+    const t = setTimeout(() => {
+      setOpen(true);
+      sessionStorage.setItem('nh_popup_shown', '1');
+    }, 2000);
+    return () => clearTimeout(t);
+  }, []);
+
+  if (!open) return null;
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setSubmitted(true);
+  }
+
+  return (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/50" onClick={() => setOpen(false)}>
+      <div
+        className="relative w-full max-w-sm bg-white rounded-2xl shadow-xl p-6"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={() => setOpen(false)}
+          className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-600 transition"
+          aria-label="Close"
+        >
+          <X className="w-4 h-4" />
+        </button>
+
+        {submitted ? (
+          <div className="flex flex-col items-center text-center py-6">
+            <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+              <Send className="w-6 h-6 text-primary" />
+            </div>
+            <h3 className="text-lg font-bold text-foreground mb-1">Thank You!</h3>
+            <p className="text-sm text-gray-500">Our team will get back to you shortly.</p>
+          </div>
+        ) : (
+          <>
+            <h3 className="text-xl font-bold text-foreground mb-1">Get a Free Consultation</h3>
+            <p className="text-sm text-gray-500 mb-5">Share your details and our healthcare advisor will call you back.</p>
+            <form onSubmit={handleSubmit} className="space-y-3">
+              <input required type="text" placeholder="Your full name" className="w-full px-4 py-2.5 rounded-lg border border-gray-200 text-sm focus:outline-none focus:border-primary transition" />
+              <input required type="tel" placeholder="+91 XXXXX XXXXX" className="w-full px-4 py-2.5 rounded-lg border border-gray-200 text-sm focus:outline-none focus:border-primary transition" />
+              <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-white font-semibold">
+                Submit <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </form>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
+      <ContactPopup />
 
       {/* Hero Banner Slider */}
       <HeroBanner />
@@ -154,7 +215,7 @@ export default function Home() {
       </div>
 
       {/* Why Choose Us Section */}
-      <section className="py-20" style={{ backgroundColor: 'rgb(25, 165, 164)' }}>
+      <section className="py-20" style={{ backgroundColor: '#001939' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-white mb-12">Why Choose Namma Health</h2>
           
@@ -236,7 +297,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 overflow-hidden" style={{ backgroundColor: 'rgb(25, 165, 164)' }}>
+      <section className="py-20 overflow-hidden" style={{ backgroundColor: '#001939' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between mb-12">
             <div>
@@ -347,33 +408,33 @@ export default function Home() {
                 ))}
               </ul>
               <Button className="w-full bg-primary hover:bg-primary/90 text-white font-semibold">
-                Get Started <ArrowRight className="ml-2 w-4 h-4" />
+                Choose Plan <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </div>
 
             {/* Family Plan */}
-            <div className="relative flex flex-col rounded-2xl border-2 bg-white p-8 shadow-sm hover:shadow-lg transition duration-300" style={{ borderColor: 'rgb(25, 165, 164)' }}>
+            <div className="relative flex flex-col rounded-2xl border-2 bg-white p-8 shadow-sm hover:shadow-lg transition duration-300" style={{ borderColor: '#001939' }}>
               <div className="absolute -top-3.5 left-6">
-                <span className="text-white text-xs font-bold px-4 py-1 rounded-full" style={{ backgroundColor: 'rgb(25, 165, 164)' }}>Best Value</span>
+                <span className="text-white text-xs font-bold px-4 py-1 rounded-full" style={{ backgroundColor: '#001939' }}>Best Value</span>
               </div>
               {/* Highlighted card */}
-              <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{ background: 'linear-gradient(135deg, rgba(25,165,164,0.06) 0%, rgba(25,165,164,0.02) 100%)' }} />
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style={{ backgroundColor: 'rgba(25,165,164,0.15)' }}>
-                <Users className="w-6 h-6" style={{ color: 'rgb(25, 165, 164)' }} />
+              <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{ background: 'linear-gradient(135deg, rgba(0,25,57,0.06) 0%, rgba(0,25,57,0.02) 100%)' }} />
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style={{ backgroundColor: 'rgba(0,25,57,0.15)' }}>
+                <Users className="w-6 h-6" style={{ color: '#001939' }} />
               </div>
               <h3 className="text-2xl font-bold text-foreground mb-1">Family Plan</h3>
               <p className="text-gray-500 text-sm mb-6">Complete healthcare support for your entire family in one plan.</p>
               <ul className="space-y-3 mb-8 flex-1">
                 {['All Individual Plan benefits', 'Multi-member healthcare coordination', 'Centralized medical support', 'Preventive care planning', 'Emergency & hospitalization assistance', 'Dedicated family care manager'].map((f) => (
                   <li key={f} className="flex items-center gap-3 text-sm text-gray-700">
-                    <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(25,165,164,0.15)' }}>
-                      <Check className="w-3 h-3" style={{ color: 'rgb(25, 165, 164)' }} />
+                    <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(0,25,57,0.15)' }}>
+                      <Check className="w-3 h-3" style={{ color: '#001939' }} />
                     </div>
                     {f}
                   </li>
                 ))}
               </ul>
-              <Button className="w-full text-white font-semibold" style={{ backgroundColor: 'rgb(25, 165, 164)' }}>
+              <Button className="w-full text-white font-semibold" style={{ backgroundColor: '#001939' }}>
                 Choose Plan <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </div>
@@ -491,8 +552,13 @@ export default function Home() {
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
               <div className="bg-white border border-gray-200 rounded-xl p-4 flex items-center gap-3 hover:border-primary hover:shadow-sm transition">
-                <div className="w-9 h-9 rounded-lg bg-purple-50 flex items-center justify-center flex-shrink-0">
-                  <FlaskConical className="w-5 h-5 text-purple-600" />
+                <div className="relative w-9 h-9 rounded-lg overflow-hidden flex-shrink-0">
+                  <Image
+                    src="/WhatsApp Image 2026-07-04 at 6.48.38 AM.jpeg"
+                    alt="QXL"
+                    fill
+                    className="object-contain"
+                  />
                 </div>
                 <div>
                   <span className="text-sm font-medium text-foreground block">QXL</span>
@@ -588,7 +654,7 @@ export default function Home() {
       {/* Footer */}
       <footer id="contact" className="bg-foreground text-white">
         {/* Teal accent top bar */}
-        <div className="h-1 w-full" style={{ backgroundColor: 'rgb(25, 165, 164)' }} />
+        <div className="h-1 w-full" style={{ backgroundColor: '#001939' }} />
 
         {/* Main footer body */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-10">
@@ -600,7 +666,7 @@ export default function Home() {
                 <Image src="/logo.webp" alt="Namma Health" width={130} height={36} className="h-9 w-auto object-contain brightness-0 invert" />
               </Link>
               <p className="text-white/60 text-sm leading-relaxed mb-5">Namma Health is a membership-based healthcare coordination ecosystem designed to simplify access to hospitals, diagnostics, insurance, home care, and emergency services.</p>
-              <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: 'rgb(25, 165, 164)' }}>One Membership. Complete Care.</p>
+              <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: '#001939' }}>One Membership. Complete Care.</p>
               {/* Social icons */}
               <div className="flex gap-3 mt-5">
                 {[
@@ -653,23 +719,23 @@ export default function Home() {
               <ul className="space-y-4 text-sm">
                 <li>
                   <a href="mailto:info.nammahealth@gmail.com" className="flex items-start gap-3 text-white/60 hover:text-white transition group">
-                    <span className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 border border-white/10 group-hover:border-primary transition" style={{ backgroundColor: 'rgba(25,165,164,0.15)' }}>
-                      <Mail className="w-3.5 h-3.5" style={{ color: 'rgb(25,165,164)' }} />
+                    <span className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 border border-white/10 group-hover:border-primary transition" style={{ backgroundColor: 'rgba(0,25,57,0.15)' }}>
+                      <Mail className="w-3.5 h-3.5" style={{ color: '#001939' }} />
                     </span>
                     <span>info.nammahealth@gmail.com</span>
                   </a>
                 </li>
                 <li>
                   <a href="tel:+916360108440" className="flex items-start gap-3 text-white/60 hover:text-white transition group">
-                    <span className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 border border-white/10 group-hover:border-primary transition" style={{ backgroundColor: 'rgba(25,165,164,0.15)' }}>
-                      <Phone className="w-3.5 h-3.5" style={{ color: 'rgb(25,165,164)' }} />
+                    <span className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 border border-white/10 group-hover:border-primary transition" style={{ backgroundColor: 'rgba(0,25,57,0.15)' }}>
+                      <Phone className="w-3.5 h-3.5" style={{ color: '#001939' }} />
                     </span>
                     <span>+91-6360108440</span>
                   </a>
                 </li>
                 <li className="flex items-start gap-3 text-white/60">
-                  <span className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 border border-white/10" style={{ backgroundColor: 'rgba(25,165,164,0.15)' }}>
-                    <MapPin className="w-3.5 h-3.5" style={{ color: 'rgb(25,165,164)' }} />
+                  <span className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 border border-white/10" style={{ backgroundColor: 'rgba(0,25,57,0.15)' }}>
+                    <MapPin className="w-3.5 h-3.5" style={{ color: '#001939' }} />
                   </span>
                   <span>#198, CMH Road, 2nd Floor, Desk No. 317, Indira Nagar, Bangalore, Karnataka – 560038</span>
                 </li>

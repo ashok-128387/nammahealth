@@ -113,7 +113,7 @@ export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-white/20" style={{ backgroundColor: 'rgb(25, 165, 164)' }}>
+      <header className="sticky top-0 z-50 border-b border-white/20" style={{ backgroundColor: '#001939' }}>
         <div className="h-1 w-full bg-white/20" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center">
@@ -125,12 +125,12 @@ export default function PrivacyPage() {
             <Link href="/about" className="text-sm font-medium text-white hover:text-white/70 transition">About Us</Link>
             <Link href="/contact" className="text-sm font-medium text-white hover:text-white/70 transition">Contact</Link>
           </nav>
-          <Button className="bg-white hover:bg-white/90 font-semibold" style={{ color: 'rgb(25, 165, 164)' }}>Book Now</Button>
+          <Button className="bg-white hover:bg-white/90 font-semibold" style={{ color: '#001939' }}>Book Now</Button>
         </div>
       </header>
 
       {/* Hero */}
-      <section className="py-14" style={{ backgroundColor: 'rgb(25, 165, 164)' }}>
+      <section className="py-14" style={{ backgroundColor: '#001939' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-semibold text-white/80 uppercase tracking-wide mb-3">Legal</p>
           <h1 className="text-5xl font-bold text-white mb-4">Privacy Policy</h1>
@@ -196,7 +196,7 @@ export default function PrivacyPage() {
           ))}
 
           {/* Contact Box */}
-          <div className="p-6 rounded-2xl text-white" style={{ backgroundColor: 'rgb(25, 165, 164)' }}>
+          <div className="p-6 rounded-2xl text-white" style={{ backgroundColor: '#001939' }}>
             <h2 className="text-lg font-bold mb-1">Privacy Concerns & Data Requests</h2>
             <p className="text-white/80 text-sm mb-4">Requests are typically addressed within 7–15 working days.</p>
             <div className="flex flex-col sm:flex-row gap-4">

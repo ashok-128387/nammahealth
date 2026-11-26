@@ -65,7 +65,7 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="relative flex items-center justify-center min-h-[480px]">
-              <div className="absolute inset-0 rounded-3xl" style={{ background: 'radial-gradient(ellipse at center, rgba(25,165,164,0.15) 0%, transparent 70%)' }} />
+              <div className="absolute inset-0 rounded-3xl" style={{ background: 'radial-gradient(ellipse at center, rgba(0,25,57,0.15) 0%, transparent 70%)' }} />
               <Image
                 src="/d28d5a29-7c53-4cc3-8a1a-fb2fa7a352ab_removalai_preview.webp"
                 alt="Namma Health"

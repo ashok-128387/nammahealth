@@ -17,7 +17,7 @@ export default function Footer() {
 
       {/* Footer */}
       <footer id="contact" className="bg-foreground text-white">
-        <div className="h-1 w-full" style={{ backgroundColor: 'rgb(25, 165, 164)' }} />
+        <div className="h-1 w-full" style={{ backgroundColor: '#001939' }} />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-10">
           <div className="grid md:grid-cols-4 gap-10 mb-12">
@@ -28,7 +28,7 @@ export default function Footer() {
                 <Image src="/logo.webp" alt="Namma Health" width={130} height={36} className="h-9 w-auto object-contain brightness-0 invert" />
               </Link>
               <p className="text-white/60 text-sm leading-relaxed mb-5">Namma Health is a membership-based healthcare coordination ecosystem designed to simplify access to hospitals, diagnostics, insurance, home care, and emergency services.</p>
-              <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: 'rgb(25, 165, 164)' }}>One Membership. Complete Care.</p>
+              <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: '#001939' }}>One Membership. Complete Care.</p>
               <div className="flex gap-3 mt-5">
                 {[
                   { label: 'Facebook', path: 'M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z' },
@@ -80,23 +80,23 @@ export default function Footer() {
               <ul className="space-y-4 text-sm">
                 <li>
                   <a href="mailto:info.nammahealth@gmail.com" className="flex items-start gap-3 text-white/60 hover:text-white transition group">
-                    <span className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 border border-white/10 group-hover:border-primary transition" style={{ backgroundColor: 'rgba(25,165,164,0.15)' }}>
-                      <Mail className="w-3.5 h-3.5" style={{ color: 'rgb(25,165,164)' }} />
+                    <span className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 border border-white/10 group-hover:border-primary transition" style={{ backgroundColor: 'rgba(0,25,57,0.15)' }}>
+                      <Mail className="w-3.5 h-3.5" style={{ color: '#001939' }} />
                     </span>
                     <span>info.nammahealth@gmail.com</span>
                   </a>
                 </li>
                 <li>
                   <a href="tel:+916360108440" className="flex items-start gap-3 text-white/60 hover:text-white transition group">
-                    <span className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 border border-white/10 group-hover:border-primary transition" style={{ backgroundColor: 'rgba(25,165,164,0.15)' }}>
-                      <Phone className="w-3.5 h-3.5" style={{ color: 'rgb(25,165,164)' }} />
+                    <span className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 border border-white/10 group-hover:border-primary transition" style={{ backgroundColor: 'rgba(0,25,57,0.15)' }}>
+                      <Phone className="w-3.5 h-3.5" style={{ color: '#001939' }} />
                     </span>
                     <span>+91-6360108440</span>
                   </a>
                 </li>
                 <li className="flex items-start gap-3 text-white/60">
-                  <span className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 border border-white/10" style={{ backgroundColor: 'rgba(25,165,164,0.15)' }}>
-                    <MapPin className="w-3.5 h-3.5" style={{ color: 'rgb(25,165,164)' }} />
+                  <span className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 border border-white/10" style={{ backgroundColor: 'rgba(0,25,57,0.15)' }}>
+                    <MapPin className="w-3.5 h-3.5" style={{ color: '#001939' }} />
                   </span>
                   <span>#198, CMH Road, 2nd Floor, Desk No. 317, Indira Nagar, Bangalore, Karnataka – 560038</span>
                 </li>

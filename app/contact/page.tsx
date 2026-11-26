@@ -33,7 +33,7 @@ export default function ContactPage() {
       </header>
 
       {/* Hero */}
-      <section className="py-16" style={{ backgroundColor: 'rgb(25, 165, 164)' }}>
+      <section className="py-16" style={{ backgroundColor: '#001939' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-sm font-semibold text-white/80 uppercase tracking-wide mb-3">Get In Touch</p>
           <h1 className="text-5xl font-bold text-white mb-4">Contact Us</h1>

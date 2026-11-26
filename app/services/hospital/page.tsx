@@ -76,7 +76,7 @@ export default function HospitalServicesPage() {
             <div className="hidden md:flex items-center justify-center">
               <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl" style={{ maxHeight: '380px' }}>
                 <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=700&q=80" alt="Hospital building" className="w-full h-full object-cover" style={{ maxHeight: '380px' }} />
-                <div className="absolute inset-0 rounded-2xl" style={{ background: 'linear-gradient(135deg, rgba(25,165,164,0.25) 0%, transparent 60%)' }} />
+                <div className="absolute inset-0 rounded-2xl" style={{ background: 'linear-gradient(135deg, rgba(0,25,57,0.25) 0%, transparent 60%)' }} />
               </div>
             </div>
           </div>
