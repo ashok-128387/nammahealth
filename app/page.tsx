@@ -2,7 +2,7 @@
 
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { ArrowRight, Check, Star, MapPin, Phone, Mail, MessageCircleQuestion, ChevronLeft, ChevronRight, Quote, User, Users, Building2, Hospital, FlaskConical, ShieldCheck, HeartPulse, Home as HomeIcon, Ambulance, Target, Globe, Sparkles, BadgeDollarSign, PhoneCall, AlertTriangle, Clock, X, Send } from 'lucide-react';
+import { ArrowRight, Check, Star, MapPin, Phone, Mail, MessageCircleQuestion, ChevronLeft, ChevronRight, Quote, User, Users, Building2, Hospital, FlaskConical, ShieldCheck, HeartPulse, Home as HomeIcon, Ambulance, Target, Globe, Sparkles, BadgeDollarSign, PhoneCall, AlertTriangle, Clock, X, Send, Asterisk, MessageSquareText } from 'lucide-react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import Navbar from '@/components/Navbar';
 import Image from 'next/image';
@@ -75,7 +75,7 @@ function HeroBanner() {
       </button>
 
       {/* Dots */}
-      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+      <div className="absolute bottom-9 sm:bottom-16 md:bottom-20 left-1/2 -translate-x-1/2 flex gap-2 z-10">
         {banners.map((_, i) => (
           <button
             key={i}
@@ -158,6 +158,32 @@ export default function Home() {
 
       {/* Hero Banner Slider */}
       <HeroBanner />
+
+      {/* Assistance Card — overlaps bottom of banner */}
+      <section className="relative z-20 px-4 sm:px-6 lg:px-8 -mt-6 sm:-mt-12 md:-mt-16">
+        <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.12)] border-l-4 border-red-700 p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-6">
+          <div className="flex items-start gap-5 flex-1">
+            <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-red-50 flex items-center justify-center flex-shrink-0">
+              <Asterisk className="w-8 h-8 md:w-9 md:h-9 text-red-700" strokeWidth={3} />
+            </div>
+            <div className="space-y-2">
+              <h2 className="text-xl md:text-2xl font-bold text-primary">Need healthcare assistance right now?</h2>
+              <p className="text-gray-600 md:text-lg">Our coordination team is ready to assist you immediately.</p>
+              <p className="text-xs md:text-sm italic font-semibold text-gray-500">
+                Disclaimer: Namma Health is a coordination service. In case of a severe medical emergency, please call your local emergency services directly.
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col sm:flex-row md:flex-col gap-3 md:w-60 flex-shrink-0">
+            <a href="tel:+916360108440" className="flex-1 flex items-center justify-center gap-2.5 rounded-lg bg-red-700 hover:bg-red-800 text-white font-medium text-base md:text-lg px-6 py-3.5 transition">
+              <Phone className="w-5 h-5" /> Get Assistance
+            </a>
+            <a href="https://wa.me/916360108440" target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2.5 rounded-lg bg-[#25D366] hover:bg-[#1fb855] text-white font-medium text-base md:text-lg px-6 py-3.5 transition">
+              <MessageSquareText className="w-5 h-5" /> WhatsApp Us
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* Hero Content Section */}
       <section className="py-16 bg-white">
